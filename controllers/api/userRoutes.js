@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { valid } = require('semver');
+// const { valid } = require('semver');
 const { User, Post } = require('../../models');
 
 // create new user route
