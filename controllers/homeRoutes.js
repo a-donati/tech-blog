@@ -1,1 +1,3 @@
-// render data
+// render data.
+
+module.exports = router;
