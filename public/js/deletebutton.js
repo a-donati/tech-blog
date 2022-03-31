@@ -15,6 +15,6 @@
   };
   
   document
-    .querySelector('.post-list')
+    .querySelector('.delete-post-form')
     .addEventListener('click', delButtonHandler);
   

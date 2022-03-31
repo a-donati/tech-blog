@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
   });
 
 // render individual post 
- router.get('/posts/:id', withAuth, async (req, res) => {
+ router.get('/posts/:id', async (req, res) => {
      try {
          const postData = await Post.findByPk(req.params.id, {
              include: [

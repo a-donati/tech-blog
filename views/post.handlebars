@@ -14,6 +14,15 @@
     </div>
   </div>
 </form>
+
+<form class="form delete-post-form">
+  <div class="col-md-4">
+    <div class="form-group">
+             <button class="btn btn-danger" data-id="{{post.id}}">Delete post</button>
+    </div>
+  </div>
+</form>
+
 {{/if}}
 
 <br>
@@ -22,22 +31,23 @@
 {{> comments}}
 
 <div class="col-md-6">
-   
-
     <form class="form new-comment-form">
       <div class="form-group">
         <label for="comment-content">Add a comment:</label>
-        <textarea class="form-input" id="comment-content" post_id = {{id}} user_name={{user.name}} name="comment-content"></textarea>
+        <textarea class="form-input" id="comment-content" post_id ={{id}} user_name={{user.name}} name="comment-content"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
-  </div>
+  </div> 
 
 
   <script src="/js/post.js"></script>
   {{!-- if currentuser returns true, renderupdate button --}}
   {{#if current_users_post}}
   <script src="/js/updatebutton.js"></script>
+    <script src="/js/deletebutton.js"></script>
+
   {{/if}}
+
