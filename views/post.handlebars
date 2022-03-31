@@ -18,15 +18,26 @@
 
 <br>
 
-{{!-- add a new comment --}}
-<form class="form new-comment-form">
-  <div class="form-group">
-    <label for="comment-section">Add a comment:</label>
-    <textarea class="form-input" id="comment-content" post_id={{id}} user_name={{user.name}}
-      name="comment-content"></textarea>
+{{!-- comments partial, will only render if comments exist --}}
+{{> comments}}
+
+<div class="col-md-6">
+   
+
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="comment-content">Add a comment:</label>
+        <textarea class="form-input" id="comment-content" post_id = {{id}} user_name={{user.name}} name="comment-content"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-  </div>
-</form>
+
+
+  <script src="/js/post.js"></script>
+  {{!-- if currentuser returns true, renderupdate button --}}
+  {{#if current_users_post}}
+  <script src="/js/updatebutton.js"></script>
+  {{/if}}
