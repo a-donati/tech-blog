@@ -1,7 +1,10 @@
     const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
+      // const id = event.target.getAttribute('data-id');
+      const id = window.location.pathname.split('/')[2];
+      // console.log(id)
+      // document.location.replace(`/api/posts/update/${id}`)
+
       const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
@@ -15,6 +18,6 @@
   };
   
   document
-    .querySelector('.delete-post-form')
+    .querySelector('.btn-danger')
     .addEventListener('click', delButtonHandler);
   

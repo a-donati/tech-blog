@@ -16,7 +16,11 @@ const hbs = exphbs.create({ helpers });
 // express session config
 const sess = {
   secret: process.env.SESSION_SECRET,
-  cookie: {},
+  cookie: {
+    maxAge: 3600,
+    httpOnly: true,
+    sameSite: 'strict'
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -37,7 +41,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`));
 });
 
-console.log(`Now listening on http://localhost:3001`)
