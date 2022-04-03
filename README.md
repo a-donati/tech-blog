@@ -30,8 +30,9 @@ Once signed up and signed in, user can create a new post by navigating to their 
 [Click here to see the deployed app on Heroku](https://tch-blg.herokuapp.com/)
 
 ![](./public/images/dashboard.png)
-![](./public/images/post.png)
-![]()
+
+![](./public/images/posts.png)
+
 
 ## References
 
