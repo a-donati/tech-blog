@@ -27,6 +27,12 @@ Simple blog application created using express, sequelize, and handlebars as the 
 
 Once signed up and signed in, user can create a new post by navigating to their `dashboard` page. To update or delete your post, navigate to your posts page `/api/posts/:id`. There is also an option to delete your post from the dashboard page under the "My Current Posts" sidebar list.
 
+[Click here to see the deployed app on Heroku](https://tch-blg.herokuapp.com/)
+
+![](./public/images/dashboard.png)
+![](./public/images/post.png)
+![]()
+
 ## References
 
 * [Express](https://www.npmjs.com/package/express)
