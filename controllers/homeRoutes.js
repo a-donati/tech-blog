@@ -75,7 +75,7 @@ router.get('/', async (req, res) => {
             current_users_post: isUsersPost
           }); 
      }catch(err){
-         res.json
+      res.status(500).json(err)
      }
  })
 
