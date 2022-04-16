@@ -5,6 +5,7 @@ const updateFormHandler = async (event) => {
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
     const postId = window.location.pathname.split('/')[4];
+    document.location.replace(`/posts/update/${postId}`);
 
     if (title && content) {
       const response = await fetch(`/api/posts/${postId}`, {
