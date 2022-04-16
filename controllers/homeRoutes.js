@@ -78,6 +78,55 @@ router.get('/', async (req, res) => {
       res.status(500).json(err)
      }
  })
+// update 
+ router.get('update/posts/:id', async (req, res) => {
+  try {
+      const postData = await Post.findByPk(req.params.id, {
+          include: [
+              {
+                  model: User,
+                  attributes: ['name', 'id'],
+              },
+              {
+                  model: Comment,
+                  attributes: ['content', 'user_id', 'date_created'],
+                  include: {
+                      model: User,
+                      attributes: ['name']
+                  }
+              }
+          ]
+      });
+      const post = postData.get({ plain: true });
+
+     //  const postUserId = post.user_id
+     //  const current_user = req.session.user_id
+      var isUsersPost;
+
+      function checkUsersPost(postUser, currentUser) {
+       if(postUser === currentUser){
+         isUsersPost = true;
+       } else {
+         isUsersPost = false;
+       }
+      }
+     //  returns true or false  - data passed in renders Edit post button in handlebars if true
+      checkUsersPost(post.user_id, req.session.user_id)
+
+      res.render('update', {
+         ...post,
+         // pass in below data to handlebars
+         // check if logged in 
+         logged_in: req.session.logged_in,
+         // get current user id from session
+         current_user: req.session.user_id,
+         // get true/false value of isUsersPost
+         current_users_post: isUsersPost
+       }); 
+  }catch(err){
+   res.status(500).json(err)
+  }
+})
 
 
  router.get('/dashboard', withAuth, async (req, res) => {
