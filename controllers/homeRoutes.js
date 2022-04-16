@@ -79,7 +79,7 @@ router.get('/', async (req, res) => {
      }
  })
 // update 
- router.get('update/posts/:id', async (req, res) => {
+ router.get('posts/update/:id', async (req, res) => {
   try {
       const postData = await Post.findByPk(req.params.id, {
           include: [
